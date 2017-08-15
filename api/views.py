@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
+from bs4 import BeautifulSoup
 
 from robobrowser import RoboBrowser
 
@@ -20,8 +21,31 @@ def getNotifications(request):
     browser.submit_form(form)
 
     browser.open(notifsUrl)
+    soup = browser.parsed
 
-    return HttpResponse(browser.parsed)
+    ul = soup.find('ul',attrs={'class':'timeline'})
+
+    li_time_label = ul.find_all('li',attrs={'class':'time-label'})
+    div_timeline_item = ul.find_all('div',attrs={'class':'timeline-item'})
+
+    result = []
+
+    for i in range(len(li_time_label)):
+        date = li_time_label[i].text.strip(' \t\n\r')
+        time = div_timeline_item[i].span.text.strip(' \t\n\r').replace("&nbsp","").replace(";","")
+        timelineHeader = div_timeline_item[i].find('h4',attrs={'class':'timeline-header'}).text.strip(' \t\n\r')
+        timelineBody = div_timeline_item[i].find('div',attrs={'class':'timeline-body'}).text
+        timelineHeaderUp = div_timeline_item[i].find('h3',attrs={'class':'timeline-header up'}).text.strip(' \t\n\r')
+        timelineHeaderUp = timelineHeaderUp[len("Posted by : \n              \n              "):]
+        result.append({
+            "date": date,
+            "time": time,
+            "heading": timelineHeader,
+            "body": timelineBody,
+            "poster": timelineHeaderUp
+        })
+
+    return JsonResponse(result, safe=False)
 
 def getInternNotifications(request):
     internLoginUrl = "http://tnp.dtu.ac.in/rm_2016-17/intern/intern_login"
@@ -39,8 +63,31 @@ def getInternNotifications(request):
     browser.submit_form(form)
 
     browser.open(internNotifsUrl)
+    soup = browser.parsed
 
-    return HttpResponse(browser.parsed)
+    ul = soup.find('ul',attrs={'class':'timeline'})
+
+    li_time_label = ul.find_all('li',attrs={'class':'time-label'})
+    div_timeline_item = ul.find_all('div',attrs={'class':'timeline-item'})
+
+    result = []
+
+    for i in range(len(li_time_label)):
+        date = li_time_label[i].text.strip(' \t\n\r')
+        time = div_timeline_item[i].span.text.strip(' \t\n\r').replace("&nbsp","").replace(";","")
+        timelineHeader = div_timeline_item[i].find('h4',attrs={'class':'timeline-header'}).text.strip(' \t\n\r')
+        timelineBody = div_timeline_item[i].find('div',attrs={'class':'timeline-body'}).text
+        timelineHeaderUp = div_timeline_item[i].find('h3',attrs={'class':'timeline-header up'}).text.strip(' \t\n\r')
+        timelineHeaderUp = timelineHeaderUp[len("Posted by : \n              \n              "):]
+        result.append({
+            "date": date,
+            "time": time,
+            "heading": timelineHeader,
+            "body": timelineBody,
+            "poster": timelineHeaderUp
+        })
+
+    return JsonResponse(result, safe=False)
 
 def getJobs(request):
     loginUrl = "http://tnp.dtu.ac.in/rm_2016-17/login/"
