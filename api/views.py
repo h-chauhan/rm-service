@@ -105,8 +105,24 @@ def getJobs(request):
     browser.submit_form(form)
 
     browser.open(jobsUrl)
+    soup = browser.parsed
 
-    return HttpResponse(browser.parsed)
+    table_jobopenings = soup.find('table',attrs={'id':'jobs_search'})
+    trs = table_jobopenings.find_all('tr')
+
+    companyDetails = []
+
+    for i in range(1, len(trs)):
+        tds = trs[i].find_all('td')
+        if tds[3].find('i')['class'][1] == 'fa-check':
+            companyDetails.append({
+                "name": tds[0].text,
+                "appDeadline": tds[2].text,
+                "dateOfVisit": tds[6].text,
+                "link": trs[i]['onclick'].replace("void window.open(","").replace(")",""),
+            })
+
+    return JsonResponse(companyDetails, safe=False)
 
 def getInternJobs(request):
     internLoginUrl = "http://tnp.dtu.ac.in/rm_2016-17/intern/intern_login"
@@ -124,5 +140,21 @@ def getInternJobs(request):
     browser.submit_form(form)
 
     browser.open(internJobsUrl)
+    soup = browser.parsed
 
-    return HttpResponse(browser.parsed)
+    table_jobopenings = soup.find('table',attrs={'id':'jobs_search'})
+    trs = table_jobopenings.find_all('tr')
+
+    companyDetails = []
+
+    for i in range(1, len(trs)):
+        tds = trs[i].find_all('td')
+        if tds[3].find('i')['class'][1] == 'fa-check':
+            companyDetails.append({
+                "name": tds[0].text,
+                "appDeadline": tds[2].text,
+                "dateOfVisit": tds[6].text,
+                "link": trs[i]['onclick'].replace("void window.open(","").replace(")",""),
+            })
+
+    return JsonResponse(companyDetails, safe=False)
