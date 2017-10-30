@@ -119,7 +119,7 @@ def getJobs(request):
                 "name": tds[0].text,
                 "appDeadline": tds[2].text,
                 "dateOfVisit": tds[6].text,
-                "link": trs[i]['onclick'].replace("void window.open(","").replace(")",""),
+                "link": trs[i]['onclick'].replace("void window.open('","").replace("')",""),
             })
 
     return JsonResponse(companyDetails, safe=False)
@@ -154,7 +154,7 @@ def getInternJobs(request):
                 "name": tds[0].text,
                 "appDeadline": tds[2].text,
                 "dateOfVisit": tds[6].text,
-                "link": trs[i]['onclick'].replace("void window.open(","").replace(")",""),
+                "link": trs[i]['onclick'].replace("void window.open('","").replace("')",""),
             })
 
     return JsonResponse(companyDetails, safe=False)
