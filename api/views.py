@@ -8,7 +8,7 @@ from robobrowser import RoboBrowser
 def getNotifications(request):
     loginUrl = "http://tnp.dtu.ac.in/rm_2016-17/login/"
     loginUsername = "2K15/EC/159"
-    loginPassword = "paasword"
+    loginPassword = "password"
 
     notifsUrl = "http://tnp.dtu.ac.in/rm_2016-17/student/"
 
@@ -92,7 +92,7 @@ def getInternNotifications(request):
 def getJobs(request):
     loginUrl = "http://tnp.dtu.ac.in/rm_2016-17/login/"
     loginUsername = "2K15/EC/159"
-    loginPassword = "paasword"
+    loginPassword = "password"
 
     jobsUrl = "http://tnp.dtu.ac.in/rm_2016-17/student/job_openings/"
 
