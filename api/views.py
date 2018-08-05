@@ -49,7 +49,7 @@ def getNotifications(request):
 
 def getInternNotifications(request):
     internLoginUrl = "http://tnp.dtu.ac.in/rm_2016-17/intern/intern_login"
-    internLoginUsername = "2K16/PS/012"
+    internLoginUsername = "2K16/PS/027"
     internLoginPassword = "password"
 
     internNotifsUrl = "http://tnp.dtu.ac.in/rm_2016-17/intern/intern_student"
@@ -126,7 +126,7 @@ def getJobs(request):
 
 def getInternJobs(request):
     internLoginUrl = "http://tnp.dtu.ac.in/rm_2016-17/intern/intern_login"
-    internLoginUsername = "2K16/PS/012"
+    internLoginUsername = "2K16/PS/027"
     internLoginPassword = "password"
 
     internJobsUrl = "http://tnp.dtu.ac.in/rm_2016-17/intern/intern_student/job_openings"
