@@ -7,7 +7,7 @@ from robobrowser import RoboBrowser
 # Create your views here.
 def getNotifications(request):
     loginUrl = "http://tnp.dtu.ac.in/rm_2016-17/login/"
-    loginUsername = "2K15/EC/159"
+    loginUsername = "2K15/CO/014"
     loginPassword = "password"
 
     notifsUrl = "http://tnp.dtu.ac.in/rm_2016-17/student/"
@@ -91,7 +91,7 @@ def getInternNotifications(request):
 
 def getJobs(request):
     loginUrl = "http://tnp.dtu.ac.in/rm_2016-17/login/"
-    loginUsername = "2K15/EC/159"
+    loginUsername = "2K15/CO/014"
     loginPassword = "password"
 
     jobsUrl = "http://tnp.dtu.ac.in/rm_2016-17/student/job_openings/"
