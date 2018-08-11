@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import RMCredentialsSet
+from .models import RMAccount
 
 # Register your models here.
-admin.site.register(RMCredentialsSet)
+admin.site.register(RMAccount)

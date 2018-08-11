@@ -1,18 +1,20 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from bs4 import BeautifulSoup
-
 from robobrowser import RoboBrowser
+from .account import Account
 
 # Create your views here.
 def getNotifications(request):
+    print(Account.getAccount("Placement"))
+
     loginUrl = "http://tnp.dtu.ac.in/rm_2016-17/login/"
     loginUsername = "2K15/CO/014"
     loginPassword = "password"
 
     notifsUrl = "http://tnp.dtu.ac.in/rm_2016-17/student/"
 
-    browser = RoboBrowser(history=True)
+    browser = RoboBrowser(history=True, parser="html.parser")
     browser.open(loginUrl)
 
     form = browser.get_form(0)
@@ -48,13 +50,15 @@ def getNotifications(request):
     return JsonResponse(result, safe=False)
 
 def getInternNotifications(request):
+    print(Account.getAccount("Internship"))
+
     internLoginUrl = "http://tnp.dtu.ac.in/rm_2016-17/intern/intern_login"
     internLoginUsername = "2K16/PS/027"
     internLoginPassword = "password"
 
     internNotifsUrl = "http://tnp.dtu.ac.in/rm_2016-17/intern/intern_student"
 
-    browser = RoboBrowser(history=True)
+    browser = RoboBrowser(history=True, parser="html.parser")
     browser.open(internLoginUrl)
 
     form = browser.get_form(0)
