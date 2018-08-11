@@ -49,6 +49,7 @@ class Account:
                 if Account.checkLogin(type, username, password):
                     account, created = RMAccount.objects.get_or_create(type=type)
                     account.username = username
+                    account.password = password
                     account.save()
                     return account
         return None
