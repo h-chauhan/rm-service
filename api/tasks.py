@@ -46,7 +46,7 @@ def savePlacementJobs():
                 dateOfVisit=job["dateOfVisit"],
                 link=job["link"]
             )
-            job.save()
+            jobOpening.save()
         print("Placement Jobs saved!!!")
 
 @task()
