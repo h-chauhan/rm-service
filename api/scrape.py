@@ -2,17 +2,9 @@ from bs4 import BeautifulSoup
 from robobrowser import RoboBrowser
 from .account import Account
 
-def login(type, account):
-    params = Account.getInternLoginParams() if type == "Internship" else Account.getPlacementLoginParams()
-    browser = RoboBrowser(history=True, parser="html.parser")
-    browser.open(params["loginUrl"])
-    form = browser.get_form(0)
-    form[params["username_field"]].value = account.username
-    form[params["password_field"]].value = account.password
-    browser.submit_form(form)
-    return browser
-
-def parseNotifications(type, browser):
+def getNotifications(type):
+    account = Account.getAccount(type)
+    browser = Account.login(type, account)
     params = Account.getInternLoginParams() if type == "Internship" else Account.getPlacementLoginParams()
     browser.open(params["notifsUrl"])
     soup = browser.parsed
@@ -38,9 +30,12 @@ def parseNotifications(type, browser):
             "poster": timelineHeaderUp
         })
 
+    print("Notifications parsed")
     return notifs
 
-def parseJobs(type, browser):
+def getJobs(type):
+    account = Account.getAccount(type)
+    browser = Account.login(type, account)
     params = Account.getInternLoginParams() if type == "Internship" else Account.getPlacementLoginParams()
     browser.open(params["jobsUrl"])
     soup = browser.parsed
@@ -60,4 +55,5 @@ def parseJobs(type, browser):
                 "link": trs[i]['onclick'].replace("void window.open('","").replace("')",""),
             })
 
+    print("Jobs parsed")
     return companyDetails

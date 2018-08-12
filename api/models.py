@@ -12,7 +12,7 @@ class RMAccount(models.Model):
 class Notification(models.Model):
     date = models.CharField(max_length=50)
     time = models.CharField(max_length=50)
-    header = models.CharField(max_length=200)
+    heading = models.CharField(max_length=200)
     body  = models.TextField()
     poster = models.CharField(max_length=200)
 
@@ -21,13 +21,13 @@ class Notification(models.Model):
 
 class PlacementNotification(Notification):
     pass
-    
+
 class InternNotification(Notification):
     pass
 
 class JobOpening(models.Model):
     name = models.CharField(max_length=100)
-    deadline = models.CharField(max_length=100)
+    appDeadline = models.CharField(max_length=100)
     dateOfVisit = models.CharField(max_length=100)
     link = models.URLField()
 
@@ -36,6 +36,6 @@ class JobOpening(models.Model):
 
 class PlacementJobOpening(JobOpening):
     pass
-    
+
 class InternJobOpening(JobOpening):
     pass

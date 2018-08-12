@@ -5,25 +5,17 @@ from .scrape import *
 
 # Create your views here.
 def getInternNotifications(request):
-    iaccount = Account.getAccount("Internship")
-    ibrowser = login("Internship", iaccount)
-    result = parseNotifications("Internship", ibrowser)
+    result = getNotifications("Internship")
     return JsonResponse(result, safe=False)
 
 def getNotifications(request):
-    paccount = Account.getAccount("Placement")
-    pbrowser = login("Placement", paccount)
-    result = parseNotifications("Placement", pbrowser)
+    result = getNotifications("Placement")
     return JsonResponse(result, safe=False)
 
 def getInternJobs(request):
-    iaccount = Account.getAccount("Internship")
-    ibrowser = login("Internship", iaccount)
-    result = parseJobs("Internship", ibrowser)
+    result = getJobs("Internship")
     return JsonResponse(result, safe=False)
 
 def getJobs(request):
-    paccount = Account.getAccount("Placement")
-    pbrowser = login("Placement", paccount)
-    result = parseJobs("Placement", pbrowser)
+    result = getJobs("Placement")
     return JsonResponse(result, safe=False)

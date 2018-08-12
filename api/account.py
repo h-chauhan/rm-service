@@ -2,7 +2,7 @@ from .models import RMAccount
 from bs4 import BeautifulSoup
 from robobrowser import RoboBrowser
 
-class Account: 
+class Account:
     @staticmethod
     def getInternLoginParams():
         return {
@@ -25,14 +25,21 @@ class Account:
             "year": "2K15"
         }
 
-    def checkLogin(type, username, password):
+    @staticmethod
+    def login(type, account):
         params = Account.getInternLoginParams() if type == "Internship" else Account.getPlacementLoginParams()
         browser = RoboBrowser(history=True, parser="html.parser")
         browser.open(params["loginUrl"])
         form = browser.get_form(0)
-        form[params["username_field"]].value = username
-        form[params["password_field"]].value = password
+        form[params["username_field"]].value = account.username
+        form[params["password_field"]].value = account.password
         browser.submit_form(form)
+        return browser
+
+    def checkLogin(type, username, password):
+        params = Account.getInternLoginParams() if type == "Internship" else Account.getPlacementLoginParams()
+        account = RMAccount(type=type, username=username, password=password)
+        browser = Account.login(type, account)
         browser.open(params["notifsUrl"])
         soup = browser.parsed
         ul = soup.find('ul',attrs={'class':'timeline'})
