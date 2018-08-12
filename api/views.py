@@ -27,8 +27,3 @@ def getPlacementJobs(request):
     jobs = PlacementJobOpening.objects.all()
     serializers = PlacementJobSerializer(jobs, many=True)
     return JsonResponse(serializers.data, safe=False)
-
-savePlacementNotifications()
-savePlacementJobs()
-saveInternNotifications()
-saveInternJobs()
