@@ -1,8 +1,8 @@
-from celery.decorators import task
+from celery import shared_task
 from .scrape import getNotifications, getJobs
 from .models import PlacementNotification, PlacementJobOpening, InternNotification, InternJobOpening
 
-@task()
+@shared_task
 def savePlacementNotifications():
     notifs = getNotifications("Placement")
     if len(notifs) > 0:
@@ -18,7 +18,7 @@ def savePlacementNotifications():
             notification.save()
         print("Placement Notifications saved!!!")
 
-@task()
+@shared_task
 def saveInternNotifications():
     notifs = getNotifications("Internship")
     if len(notifs) > 0:
@@ -34,7 +34,7 @@ def saveInternNotifications():
             notification.save()
         print("Internship Notifications saved!!!")
 
-@task()
+@shared_task
 def savePlacementJobs():
     jobs = getJobs("Placement")
     if len(jobs) > 0:
@@ -49,7 +49,7 @@ def savePlacementJobs():
             jobOpening.save()
         print("Placement Jobs saved!!!")
 
-@task()
+@shared_task
 def saveInternJobs():
     jobs = getJobs("Internship")
     if len(jobs) > 0:
