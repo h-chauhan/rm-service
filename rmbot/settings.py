@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
-from celery.schedules import crontab
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -126,28 +125,3 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
-CELERY_BROKER_URL = 'redis://localhost:6379'
-CELERY_RESULT_BACKEND = 'redis://localhost:6379'
-CELERY_ACCEPT_CONTENT = ['application/json']
-CELERY_RESULT_SERIALIZER = 'json'
-CELERY_TASK_SERIALIZER = 'json'
-CELERY_TIMEZONE = 'Asia/Kolkata'
-CELERY_BEAT_SCHEDULE = {
-    'task-number-one': {
-        'task': 'api.tasks.savePlacementNotifications',
-        'schedule': crontab(minute='*/2'),
-    },
-    'task-number-two': {
-        'task': 'api.tasks.savePlacementJobs',
-        'schedule': crontab(minute='*/5'),
-    },
-    'task-number-three': {
-        'task': 'api.tasks.saveInternNotifications',
-        'schedule': crontab(minute='*/2'),
-    },
-    'task-number-four': {
-        'task': 'api.tasks.saveInternJobs',
-        'schedule': crontab(minute='*/5'),
-    }
-}
