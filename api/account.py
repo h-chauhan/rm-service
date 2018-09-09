@@ -36,7 +36,6 @@ class Account:
         browser.submit_form(form)
         return browser
 
-    @staticmethod
     def checkLogin(type, username, password):
         params = Account.getInternLoginParams() if type == "Internship" else Account.getPlacementLoginParams()
         account = RMAccount(type=type, username=username, password=password)
@@ -46,7 +45,6 @@ class Account:
         ul = soup.find('ul',attrs={'class':'timeline'})
         return True if ul else False
 
-    @staticmethod
     def findNewAccount(type):
         params = Account.getInternLoginParams() if type == "Internship" else Account.getPlacementLoginParams()
         branches = ["CO", "SE", "IT", "EC", "EL", "EE", "CE", "PS", "BT", "EP", "MC", "ME", "AM", "PE", "EN"]
@@ -56,7 +54,7 @@ class Account:
                 username = params["year"] + "/" + branch + "/" + rollno
                 password = "password"
                 if Account.checkLogin(type, username, password):
-                    account = RMAccount.get(type=type)
+                    account, created = RMAccount.objects.get_or_create(type=type)
                     account.username = username
                     account.password = password
                     account.save()
@@ -66,7 +64,8 @@ class Account:
 
     @staticmethod
     def getAccount(type):
-        account = RMAccount.get(type=type)
-        if Account.checkLogin(type, account.username, account.password):
-            return account
+        if RMAccount.objects.filter(type=type).exists():
+            account = RMAccount.objects.get(type=type)
+            if Account.checkLogin(type, account.username, account.password):
+                return account
         return Account.findNewAccount(type)
