@@ -1,0 +1,13 @@
+{
+    "type": "service_account",
+    "project_id": "dtu-rm-updates",
+    "private_key_id": "f487490f95437c354cac01f443ccb5de7769544f",
+    "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCZMe6wfzohpobK\nzC9/2mQkRbm5uKDezH9aYr1oekVucPEA/MxJ32aq8HAmH9pqdV3aNj48hBgKQsPq\nDOL+B2Cjw/gwi9KHyfdpnt1iHBDbHcCxinekilL5/E5fQZv2nYYh3U8t1tXPNr/D\nmH/hIeUh9ZoJlpFx3LjYmK9hNUzvuikm607gvw0t20Iy8MX/uzoPMu2nla8K7AoM\nnZD6Dv5E1gks1fO0Pf8yiVqJQe3CfO+yNVcxh1hdrsP90i4LLOc2um6lxVXKZRv/\nJey2xjIBXD6baqqfgYDOoya5mNt9k9k+zQ2ATrMMyRU7Sw9eT0KdT6SlC/sDfU+g\nW5bPxNYBAgMBAAECggEAPQkO31UhVQzjAWOOvTLG2UjKcXtk5L+3MczLSBgHF7R5\n4PnXbstKPWrkU9w3CllOlkUsULIUXeox4ktWGP3ZfAX1GWpr69wE7hj0fUVPVe2p\nu1K+zliqLJ1goEUknYIvUci55jqFHzTh/E0DDjCR+RDAWXea5TGal/llTqaMy6nT\nMzu+3lYP3GTDRx9NfWAYa8CN0Nnd0A568aB6TYJmwl5Y33XI6J85uhGQfaFv4b2e\numx9kIOv+oVecxb1iCChVwPNrK4KANYG48covqbgb7Wu4FkrQv/J9TlhMisa08nf\naMIQVwG3OO2TjBL3bKDcoFhcbVFH8IaV+DIPjAGXrQKBgQDHKz0lrveOOBJ+ukrw\nfPKDxTXrL7Cjnt8tgMniG3N9+awwld4nbWcoTI6J3fDFT5wAK+vQFfde7hsxyQhg\nYOlBJf592Jd+VtkdLaje43Kv+VSW7Y6jpotV+Q7ekVJtBZWJfufm3iqioxeoD796\n1f/o05uoJLGcAfblG+pE9vNTCwKBgQDE6Gzafps/SVmWB4yuFMYqOfBdyBZQg4JR\nJcya5fktttpSLztnny82QwoOKOurL/MZMUCdo0zoe2+tiT0OfYGMZrTk9oRMi5i0\nVkSB64bkMi/s4Ke0nWEQYdYQiDyUB7Ao1wdT5iwe+cnuuj3i1WN3dqanm+9z5ptr\n/Xn1tx6iowKBgQCfSm6yN9iYLzJjlp0e79+KEe0It3CfvA2kt+8+3lOlOk1D4mj1\nwaMScQBDNXU+aWhMHtSP7TGWA/tN+wmvA3MqfremcNbg3ZbxpjX8ZY6xPUkxGLfP\nHQEtdm81BKcWuLObbxsL4z3YK3ZdHJM5K/RrgupoNUizjEKphIT+OT/sdwKBgDif\nld3nFoHGeAqatSvCMZInAyYUycXxa2ImeoX4qAUrVfDYQD72Gb+C27tirRKXQVL3\nRNuQACfCh0Th+DrYgI59YnuNIFJauljxjdXGgw3QGNQHbnKT5zusxsAOTU1MQK4d\n16+auwlVT2plCDLYpjfOWPJN9zffEsalJ5MvS5H9AoGAdHVtT3XeRhU1uHP4RgEY\nzS/m/bJYxSJoSwPgOjeArXNYPY9aKTQl2EmnKlctnzqm2AOaNBUGCKIKQFkeeWf5\nltW5fMOqa0j4ElCHAXJJYkVbVPwCR6aH5KPS43iQGL6tBdM+TAl/Ie/uWFpbUBWy\nEMzKxnjsnl+ci8GrcUotwog=\n-----END PRIVATE KEY-----\n",
+    "client_email": "rm-service@dtu-rm-updates.iam.gserviceaccount.com",
+    "client_id": "111563428056662572583",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/rm-service%40dtu-rm-updates.iam.gserviceaccount.com"
+  }
+  
