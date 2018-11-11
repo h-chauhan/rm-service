@@ -19,8 +19,8 @@ from django.contrib import admin
 from api import views
 
 urlpatterns = [
-    url(r'^placement/notifs/', views.getPlacementNotifications, name='notifications'),
-    url(r'^intern/notifs/', views.getInternNotifications, name='internNotifications'),
+    url(r'^placement/notifications/', views.getPlacementNotifications, name='notifications'),
+    url(r'^internship/notifications/', views.getInternNotifications, name='internNotifications'),
     url(r'^placement/jobs/', views.getPlacementJobs, name='jobs'),
-    url(r'^intern/jobs/', views.getInternJobs, name='internJobs'),
+    url(r'^internship/jobs/', views.getInternJobs, name='internJobs'),
 ]

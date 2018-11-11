@@ -1,11 +1,11 @@
 from bs4 import BeautifulSoup
 from robobrowser import RoboBrowser
-from .account import Account
+from .account import *
 
 def getNotifications(type):
-    account = Account.getAccount(type)
-    browser = Account.login(type, account)
-    params = Account.getInternLoginParams() if type == "Internship" else Account.getPlacementLoginParams()
+    account = getAccount(type)
+    browser = login(type, account)
+    params = getParams(type)
     browser.open(params["notifsUrl"])
     soup = browser.parsed
 
@@ -34,9 +34,9 @@ def getNotifications(type):
     return notifs
 
 def getJobs(type):
-    account = Account.getAccount(type)
-    browser = Account.login(type, account)
-    params = Account.getInternLoginParams() if type == "Internship" else Account.getPlacementLoginParams()
+    account = getAccount(type)
+    browser = login(type, account)
+    params = getParams(type)
     browser.open(params["jobsUrl"])
     soup = browser.parsed
 

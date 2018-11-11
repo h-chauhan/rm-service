@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .account import Account
+from .account import *
 from .models import RMAccount
 
 # Create your tests here.
@@ -11,8 +11,8 @@ class AccountTests(TestCase):
             Placement account in DB and it should match the returned account
         """
         RMAccount.objects.filter(type="Placement").delete()
-        account = Account.getAccount("Placement")
-        self.assertEqual(Account.checkLogin("Placement", account.username, account.password), True)
+        account = getAccount("Placement")
+        self.assertEqual(checkLogin("Placement", account.username, account.password), True)
         self.assertEqual(RMAccount.objects.filter(type="Placement").count(), 1)
         if RMAccount.objects.filter(type="Placement").exists():
             db_account = RMAccount.objects.get(type="Placement")
@@ -24,8 +24,8 @@ class AccountTests(TestCase):
             Internship account in DB and it should match the returned account
         """
         RMAccount.objects.filter(type="Internship").delete()
-        account = Account.getAccount("Internship")
-        self.assertEqual(Account.checkLogin("Internship", account.username, account.password), True)
+        account = getAccount("Internship")
+        self.assertEqual(checkLogin("Internship", account.username, account.password), True)
         self.assertEqual(RMAccount.objects.filter(type="Internship").count(), 1)
         if RMAccount.objects.filter(type="Internship").exists():
             db_account = RMAccount.objects.get(type="Internship")
