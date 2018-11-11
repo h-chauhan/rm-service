@@ -28,6 +28,8 @@ DEBUG = False
 ALLOWED_HOSTS = [
     "127.0.0.1",
     "localhost",
+    "https://rmbot-service.herokuapp.com/",
+    "206.189.131.87",
     "service.dturmupdates.me",
 ]
 
