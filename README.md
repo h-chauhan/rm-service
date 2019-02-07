@@ -6,13 +6,13 @@ Built with :heart: and Django.
 
 ## API Endpoints
 
-1. Placement Notifications: http://service.dturmupdates.me/api/placement/notifications/
+1. Placement Notifications: https://service.dturmupdates.com/api/placement/notifications/
 
 2. Placement Job Openings:
-http://service.dturmupdates.me/api/placement/jobs/
+https://service.dturmupdates.com/api/placement/jobs/
 
 3. Internship Notification:
-http://service.dturmupdates.me/api/internship/notifications/
+https://service.dturmupdates.com/api/internship/notifications/
 
 4. Internship Job Openings:
-http://service.dturmupdates.me/api/internship/jobs/
+https://service.dturmupdates.com/api/internship/jobs/

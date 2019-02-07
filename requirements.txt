@@ -3,7 +3,7 @@ bs4==0.0.1
 certifi==2018.8.24
 cffi==1.11.5
 chardet==3.0.4
-Django==2.1.2
+Django==2.1.5
 greenlet==0.4.15
 gunicorn==19.9.0
 idna==2.7
