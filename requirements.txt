@@ -11,6 +11,7 @@ pycparser==2.18
 pytz==2018.5
 requests==2.20.1
 robobrowser==0.5.3
+sentry-sdk==0.7.1
 six==1.11.0
 urllib3==1.23
 Werkzeug==0.14.1
