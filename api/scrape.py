@@ -2,11 +2,17 @@ from bs4 import BeautifulSoup
 from robobrowser import RoboBrowser
 from .account import *
 
+import logging
+
 def getNotifications(type):
     account = getAccount(type)
+    logging.info({"Using Account": account})
+
     browser = login(type, account)
     params = getParams(type)
     browser.open(params["notifsUrl"])
+    logging.info({"message": "Scraping RM Notifications", "url": params["notifsUrl"]})
+
     soup = browser.parsed
 
     ul = soup.find('ul',attrs={'class':'timeline'})
@@ -30,14 +36,18 @@ def getNotifications(type):
             "poster": timelineHeaderUp
         })
 
-    print("Notifications parsed")
+    logging.info({"message": "Notifications Scraped!!!"})
     return notifs
 
 def getJobs(type):
     account = getAccount(type)
+    logging.info({"Using Account": account})
+
     browser = login(type, account)
     params = getParams(type)
     browser.open(params["jobsUrl"])
+    logging.info({"message": "Scraping RM Jobs", "url": params["jobsUrl"]})
+
     soup = browser.parsed
 
     table_jobopenings = soup.find('table',attrs={'id':'jobs_search'})
@@ -55,5 +65,5 @@ def getJobs(type):
                 "link": trs[i]['onclick'].replace("void window.open('","").replace("')",""),
             })
 
-    print("Jobs parsed")
+    logging.info({"message": "Jobs Scraped!!!"})
     return companyDetails
